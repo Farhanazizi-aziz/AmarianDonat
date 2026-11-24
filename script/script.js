@@ -24,7 +24,7 @@
   
     // Konfigurasi Toko Amaria-N Donuts Banyumas
     const STORE_WHATSAPP = '6281216497059';
-    const STORE_EMAIL = ''; // Isi email resmi di sini jika sudah tersedia
+    const STORE_EMAIL = 'hanfarazizi@gmail.com'; // Isi email resmi di sini jika sudah tersedia
     const STORE_MAP_QUERY = 'Amaria N Donuts Banyumas';
 
     // Database Menu Terstruktur dengan Sub-Kategori (Jenis Produk)

@@ -21,7 +21,7 @@
         }
       }
     }
-
+  
     // Konfigurasi Toko Amaria-N Donuts Banyumas
     const STORE_WHATSAPP = '6281216497059';
     const STORE_EMAIL = ''; // Isi email resmi di sini jika sudah tersedia
@@ -285,35 +285,35 @@
       // Render setiap grup sub-kategori dengan judul + garis pemisah + grid produk
       groupedBySubCategory.forEach(group => {
         const sectionEl = document.createElement("section");
-        sectionEl.className = "space-y-6";
+        sectionEl.className = "space-y-4 sm:space-y-6";
 
-        // Judul Sub-Kategori + Garis Horizontal (seperti referensi Discover Our Menu)
+        // Judul Sub-Kategori + Garis Horizontal
         const headerEl = document.createElement("div");
-        headerEl.className = "flex items-center gap-4";
+        headerEl.className = "flex items-center gap-3 sm:gap-4";
         headerEl.innerHTML = `
-          <h2 class="font-display shrink-0 text-2xl tracking-wide text-[#1F120E] sm:text-3xl">
+          <h2 class="font-display text-xl tracking-wide text-[#1F120E] sm:shrink-0 sm:text-3xl">
             ${group.title}
           </h2>
-          <span class="h-[2px] w-full bg-[#1F120E]/20"></span>
-          <span class="shrink-0 rounded-full border border-[#1F120E] bg-[#FFCC33] px-3 py-0.5 text-xs font-extrabold text-[#1F120E]">
+          <span class="h-[2px] flex-1 bg-[#1F120E]/20"></span>
+          <span class="shrink-0 rounded-full border border-[#1F120E] bg-[#FFCC33] px-2.5 py-0.5 text-[10px] font-extrabold text-[#1F120E] sm:px-3 sm:text-xs">
             ${group.items.length} Varian
           </span>
         `;
         sectionEl.appendChild(headerEl);
 
-        // Grid Kartu Produk Normal
+        // Grid Kartu Produk Responsif (1 col < 400px, 2 cols mobile/tablet, 3 cols desktop)
         const gridEl = document.createElement("div");
-        gridEl.className = "grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3";
+        gridEl.className = "grid grid-cols-1 gap-4 min-[400px]:grid-cols-2 sm:gap-6 xl:grid-cols-3";
 
         group.items.forEach(product => {
           const card = document.createElement("article");
-          card.className = "viral-card flex flex-col overflow-hidden rounded-3xl bg-white";
+          card.className = "viral-card flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white sm:rounded-3xl";
 
           const message = `Halo Amaria-N Donuts Banyumas! Saya mau pesan *${product.name}* (${group.title} - Rp${formatRupiah(product.price)}). Apakah ready hari ini?`;
           const whatsappURL = `https://wa.me/${STORE_WHATSAPP}?text=${encodeURIComponent(message)}`;
 
           const quantityBadge = product.quantity
-            ? `<div class="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-[#1F120E] bg-[#FFCC33]/60 px-2.5 py-1 text-xs font-extrabold text-[#1F120E]">
+            ? `<div class="mt-2.5 inline-flex items-center gap-1.5 rounded-lg border border-[#1F120E] bg-[#FFCC33]/60 px-2 py-0.5 text-[10px] font-extrabold text-[#1F120E] sm:mt-3 sm:px-2.5 sm:py-1 sm:text-xs">
                  <i class="fa-solid fa-box-open text-[#FD3A2D]"></i> ${product.quantity}
                </div>`
             : "";
@@ -329,36 +329,36 @@
               />
               <span
                 style="background-color: ${product.badgeColor || '#FD3A2D'}"
-                class="absolute left-3.5 top-3.5 rounded-xl border-2 border-[#1F120E] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-[2px_2px_0px_#1F120E]"
+                class="absolute left-2.5 top-2.5 rounded-lg border-2 border-[#1F120E] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-[2px_2px_0px_#1F120E] sm:left-3.5 sm:top-3.5 sm:rounded-xl sm:px-3 sm:py-1 sm:text-[10px]"
               >
                 ${product.label || "AMARIA SELECTION"}
               </span>
             </div>
 
-            <div class="flex flex-1 flex-col justify-between p-5 sm:p-6">
+            <div class="flex flex-1 flex-col justify-between p-3.5 sm:p-6">
               <div>
-                <h3 class="font-display text-2xl tracking-wide text-[#1F120E]">
+                <h3 class="font-display text-lg leading-tight tracking-wide text-[#1F120E] sm:text-2xl">
                   ${product.name}
                 </h3>
-                <p class="mt-2 text-xs font-medium leading-relaxed text-[#1F120E]/75 sm:text-sm">
+                <p class="mt-1.5 line-clamp-3 text-[11px] font-medium leading-relaxed text-[#1F120E]/75 sm:mt-2 sm:line-clamp-none sm:text-sm">
                   ${product.description}
                 </p>
                 ${quantityBadge}
               </div>
 
-              <div class="mt-5 border-t-2 border-dashed border-[#1F120E]/15 pt-4">
-                <div class="flex items-center justify-between gap-2">
+              <div class="mt-4 border-t-2 border-dashed border-[#1F120E]/15 pt-3 sm:mt-5 sm:pt-4">
+                <div class="flex flex-col gap-2.5 min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between">
                   <div>
-                    <span class="block text-[10px] font-extrabold uppercase tracking-wider text-[#1F120E]/50">Harga</span>
-                    <b class="font-display text-2xl text-[#FD3A2D]">Rp${formatRupiah(product.price)}</b>
+                    <span class="block text-[9px] font-extrabold uppercase tracking-wider text-[#1F120E]/50 sm:text-[10px]">Harga</span>
+                    <b class="font-display text-lg text-[#FD3A2D] sm:text-2xl">Rp${formatRupiah(product.price)}</b>
                   </div>
                   <a
                     href="${whatsappURL}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn-viral inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider"
+                    class="btn-viral inline-flex w-full items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-[11px] font-extrabold uppercase tracking-wider min-[480px]:w-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs"
                   >
-                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
                     Pesan
                   </a>
                 </div>
@@ -374,20 +374,19 @@
       });
     }
 
-    // Update Jumlah Item per Kategori Utama
+    // Update Jumlah Item per Kategori Utama (Desktop & Mobile Badges)
     function updateMenuCounts() {
       const counts = {
-        donat: 'donut-count',
-        minuman: 'drink-count',
-        paket: 'package-count'
+        donat: '.donut-count-badge',
+        minuman: '.drink-count-badge',
+        paket: '.package-count-badge'
       };
 
-      Object.entries(counts).forEach(([category, elementId]) => {
-        const element = document.getElementById(elementId);
-        if (element) {
-          const total = menuProducts.filter(p => p.category === category).length;
-          element.textContent = `(${total})`;
-        }
+      Object.entries(counts).forEach(([category, selector]) => {
+        const total = menuProducts.filter(p => p.category === category).length;
+        document.querySelectorAll(selector).forEach(el => {
+          el.textContent = `(${total})`;
+        });
       });
     }
 
@@ -528,4 +527,3 @@
     } else {
       navigateTo('home', { updateHash: false });
     }
-  

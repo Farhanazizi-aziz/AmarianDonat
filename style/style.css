@@ -1,0 +1,215 @@
+
+    :root {
+      --c-red: #FD3A2D;
+      --c-fiery: #FE5F2F;
+      --c-tangerine: #FE8330;
+      --c-mango: #FFA832;
+      --c-yellow: #FFCC33;
+      --c-cream: #FFFDF8;
+      --c-ink: #1F120E;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--c-cream);
+      color: var(--c-ink);
+      overflow-x: hidden;
+    }
+
+    /* Typography Helpers */
+    .font-display {
+      font-family: 'Anton', 'Oswald', sans-serif;
+      letter-spacing: 0.01em;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    .font-subdisplay {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* Viral Gradient Text & Backgrounds */
+    .bg-viral-gradient {
+      background: linear-gradient(115deg, #FD3A2D 0%, #FE5F2F 30%, #FE8330 60%, #FFA832 82%, #FFCC33 100%);
+    }
+
+    .text-viral-gradient {
+      background: linear-gradient(100deg, #FD3A2D 0%, #FE5F2F 45%, #FE8330 80%, #FFA832 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Neo-Brutalist / Playful Sticker Borders & Shadows */
+    .viral-card {
+      background: #FFFFFF;
+      border: 2.5px solid #1F120E;
+      box-shadow: 6px 6px 0px #1F120E;
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .viral-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 9px 9px 0px #FD3A2D;
+    }
+
+    .btn-viral {
+      background: #FD3A2D;
+      color: #FFFFFF;
+      border: 2.5px solid #1F120E;
+      box-shadow: 4px 4px 0px #1F120E;
+      transition: all 0.18s ease;
+    }
+
+    .btn-viral:hover {
+      background: #FE5F2F;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #1F120E;
+    }
+
+    .btn-viral:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #1F120E;
+    }
+
+    .btn-yellow {
+      background: #FFCC33;
+      color: #1F120E;
+      border: 2.5px solid #1F120E;
+      box-shadow: 4px 4px 0px #1F120E;
+      transition: all 0.18s ease;
+    }
+
+    .btn-yellow:hover {
+      background: #FFA832;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #1F120E;
+    }
+
+    /* Hero Polka & Radial Glow */
+    .hero-pattern {
+      background-color: #FFFDF8;
+      background-image: radial-gradient(rgba(253, 58, 45, 0.14) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    /* Infinite Marquee Ticker */
+    .marquee-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      user-select: none;
+    }
+
+    .marquee-track {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      animation: marqueeScroll 24s linear infinite;
+    }
+
+    .marquee-wrapper:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Floating Sticker Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(-4deg); }
+      50% { transform: translateY(-9px) rotate(-1deg); }
+    }
+
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(5deg); }
+      50% { transform: translateY(-8px) rotate(8deg); }
+    }
+
+    .animate-sticker-1 {
+      animation: floatSlow 4.2s ease-in-out infinite;
+    }
+
+    .animate-sticker-2 {
+      animation: floatReverse 4.8s ease-in-out infinite;
+    }
+
+    /* Category Filter Tabs */
+    .category-tab {
+      border: 2.5px solid #1F120E;
+      transition: all 0.2s ease;
+    }
+
+    .category-tab[aria-pressed="true"] {
+      background: linear-gradient(105deg, #FD3A2D 0%, #FE8330 100%);
+      color: #FFFFFF;
+      box-shadow: 4px 4px 0px #1F120E;
+      transform: translate(-2px, -2px);
+    }
+
+    .category-tab[aria-pressed="false"] {
+      background: #FFFFFF;
+      color: #1F120E;
+      box-shadow: 3px 3px 0px #1F120E;
+    }
+
+    .category-tab[aria-pressed="false"]:hover {
+      background: #FFCC33;
+      transform: translate(-1px, -1px);
+    }
+
+    /* Active Navigation Link State */
+    .nav-item.active-nav {
+      color: #FD3A2D;
+      position: relative;
+    }
+
+    .nav-item.active-nav::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 3px;
+      background: #FD3A2D;
+      border-radius: 99px;
+    }
+
+    /* Menu Card Image Aspect */
+    .menu-image {
+      aspect-ratio: 1.15 / 1;
+      object-fit: cover;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .viral-card:hover .menu-image {
+      transform: scale(1.06);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFFDF8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FE5F2F;
+      border-radius: 999px;
+      border: 2px solid #FFFDF8;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track, .animate-sticker-1, .animate-sticker-2 {
+        animation: none !important;
+      }
+    }
+ 
